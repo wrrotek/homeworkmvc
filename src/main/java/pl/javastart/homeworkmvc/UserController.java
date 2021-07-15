@@ -1,10 +1,8 @@
 package pl.javastart.homeworkmvc;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -27,18 +25,15 @@ public class UserController {
         return result;
     }
 
-    @GetMapping("/add")
-    public String add(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        int age = Integer.parseInt(request.getParameter("age"));
+    @PostMapping("/add")
+    public String add(@RequestParam String imie, @RequestParam String nazwisko, @RequestParam int wiek) {
 
-        if (name.isEmpty()) {
-            return "err.html";
+        if (imie.isEmpty()) {
+            return "redirect:/err.html";
         } else {
-            User user = new User(name, surname, age);
+            User user = new User(imie, nazwisko, wiek);
             userRepository.add(user);
-            return "success.html";
+            return "redirect:/success.html";
         }
     }
 }

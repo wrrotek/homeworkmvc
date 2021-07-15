@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body style="width: 500px; margin: 50px auto">
 <h1>Lista uczestników</h1>
-<form action="register" method="post">
-    <input name="name" placeholder="name" /><br />
-    <input name="surname" placeholder="surname" /><br />
-    <input name="age" placeholder="age" /><br />
+<form action="/add" method="post">
+    <input type="text" name="imie" placeholder="name" /><br />
+    <input type="text" name="nazwisko" placeholder="surname" /><br />
+    <input type="number" name="wiek" placeholder="age" /><br />
     <input type="submit" value="Zatwierdź" />
 </form>
-<a href="show">Pokaż wszystkch uczestników</a>
+<a href="users">Pokaż wszystkch uczestników</a>
 </body>
 </html>
